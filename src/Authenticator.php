@@ -1,6 +1,8 @@
 <?php
 namespace Styde;
 
+use Styde\SessionManager as Session;
+
 class Authenticator
 {
 
