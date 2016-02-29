@@ -6,23 +6,32 @@ use Styde\SessionManager as Session;
 class Authenticator
 {
 
-    protected static $user;
+    protected $user;
+    protected $session = null;
 
-    public static function check()
+    /**
+     * @param \Styde\SessionManager $session
+     */
+    public function __construct(Session $session)
     {
-        return static::user() != null;
+        $this->session = $session;
     }
 
-    public static function user()
+    public function check()
     {
-        if (static::$user != null) {
-            return static::$user;
+        return $this->user() != null;
+    }
+
+    public function user()
+    {
+        if ($this->user != null) {
+            return $this->user;
         }
 
-        $data = Session::get('user_data');
+        $data = $this->session->get('user_data');
 
         if (! is_null($data)) {
-            return static::$user = new User($data);
+            return $this->user = new User($data);
         }
 
         return null;

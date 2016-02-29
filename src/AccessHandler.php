@@ -5,9 +5,19 @@ use Styde\Authenticator as Auth;
 
 class AccessHandler
 {
-    
-    public static function check($role)
+
+    protected $auth = null;
+
+    /**
+     * @param Styde\Authenticator $auth
+     */
+    public function __construct($auth)
     {
-        return Auth::check() && Auth::user()->role === $role;
+        $this->auth = $auth;
+    }
+    
+    public function check($role)
+    {
+        return $this->auth->check() && $this->auth->user()->role === $role;
     }
 }
