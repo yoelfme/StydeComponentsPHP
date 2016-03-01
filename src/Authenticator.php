@@ -3,7 +3,7 @@ namespace Styde;
 
 use Styde\SessionManager as Session;
 
-class Authenticator
+class Authenticator implements AuthenticatorInterface
 {
 
     protected $user;
