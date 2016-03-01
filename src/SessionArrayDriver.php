@@ -1,7 +1,7 @@
 <?php
 namespace Styde;
 
-class SessionArrayDriver
+class SessionArrayDriver implements SessionDriverInterface
 {
     protected $data;
 
@@ -12,6 +12,6 @@ class SessionArrayDriver
 
     public function load()
     {
-        return $this->data();
+        return $this->data;
     }
 }

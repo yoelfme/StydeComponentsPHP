@@ -3,15 +3,22 @@
 use Styde\AccessHandler as Access;
 use Styde\Authenticator as Auth;
 use Styde\SessionManager as Session;
-use Styde\SessionFileDriver as SessionFileDriver;
+use Styde\SessionFileDriver;
+use Styde\SessionArrayDriver;
 
 class AccessHandlerTest extends PHPUnit_Framework_TestCase
 {
 
     public function test_grant_access()
     {
-        $sessionFileDriver = new SessionFileDriver();
-        $session = new Session($sessionFileDriver);
+        // $sessionFileDriver = new SessionFileDriver();
+        $driver = new SessionArrayDriver([
+            'user_data' => [
+                'name' => 'Yoel',
+                'role' => 'admin'
+            ]
+        ]);
+        $session = new Session($driver);
         $auth = new Auth($session);
         $access = new Access($auth);
 
