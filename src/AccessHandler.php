@@ -5,14 +5,14 @@ class AccessHandler
 {
 
     /**
-     * @var \Styde\AuthenticatorInterface
+     * @var \Styde\Authenticator
      */
     protected $auth = null;
 
     /**
-     * @param \Styde\AuthenticatorInterface $auth
+     * @param \Styde\Authenticator $auth
      */
-    public function __construct(AuthenticatorInterface $auth)
+    public function __construct(Authenticator $auth)
     {
         $this->auth = $auth;
     }
