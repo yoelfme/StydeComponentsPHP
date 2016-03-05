@@ -34,7 +34,13 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            
+            <?php //if (Access::check(['student'])) : ?>
+              <li><a href="students.php">Students</a></li>
+            <?php //endif; ?>
+
+            <?php //if (Access::check(['teacher'])) : ?>
+              <li><a href="teachers.php">Teacher</a></li>
+            <?php //endif; ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
