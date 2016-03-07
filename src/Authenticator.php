@@ -7,6 +7,11 @@ class Authenticator implements AuthenticatorInterface
 {
 
     protected $user;
+
+    /**
+     *
+     * @var \Styde\SessionManager
+     */
     protected $session = null;
 
     /**
