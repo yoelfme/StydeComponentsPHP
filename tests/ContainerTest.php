@@ -64,6 +64,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $container->make('qux');
     }
 
+    /**
+     * @expectedException Styde\ContainerException
+     * @expectedExceptionMessage Does not exist the class: Norf
+     */
     public function test_class_does_not_exist()
     {
         $container = new Container();

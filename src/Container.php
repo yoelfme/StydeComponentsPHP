@@ -42,7 +42,12 @@ class Container
 
     public function build($name)
     {
-        $reflection = new ReflectionClass($name);
+
+        try {
+            $reflection = new ReflectionClass($name);
+        } catch (ReflectionException $e) {
+            throw new ContainerException('Does not exist the class: ' . $name);
+        }
 
         if (!$reflection->isInstantiable()) {
             throw new InvalidArgumentException($name.' is not instantiable');
