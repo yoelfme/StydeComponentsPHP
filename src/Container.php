@@ -3,6 +3,7 @@ namespace Styde;
 
 use Closure;
 use ReflectionClass;
+use ReflectionException;
 
 class Container
 {
@@ -12,7 +13,7 @@ class Container
 
     public function bind($name, $resolver)
     {
-        $this->bindigns[$name] = [
+        $this->bindings[$name] = [
             'resolver' => $resolver
         ];
     }
@@ -28,7 +29,7 @@ class Container
             return $this->shared[$name];
         }
 
-        $resolver = $this->bindigns[$name]['resolver'];
+        $resolver = $this->bindings[$name]['resolver'];
 
         if ($resolver instanceof Closure) {
             $object = $resolver($this);
@@ -58,7 +59,13 @@ class Container
         $arguments = [];
 
         foreach ($constructorParameters as $constructorParameter) {
-            $parameterClassName = $constructorParameter->getClass()->getName();
+            try {
+                $parameterClassName = $constructorParameter->getClass()->getName();
+            } catch (ReflectionException $e) {
+                throw new ContainerException('Unable to build ['.$name.']: ' . $e->getMessage(), null, $e);
+                
+            }
+            
 
             $arguments[] = $this->build($parameterClassName);
         }
