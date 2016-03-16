@@ -76,6 +76,28 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
         $container->make('norf');
     }
+
+    public function test_container_make_with_arguments()
+    {
+        $container = new Container();
+
+        $this->assertInstanceOf(
+            MailDummy::class,
+            $container->make('MailDummy')
+        );
+    }
+}
+
+class MailDummy {
+
+    private $url;
+    private $key;
+
+    public function __construct($url, $key)
+    {
+        $this->url = $url;
+        $this->key = $key;
+    }
 }
 
 class Foo {
