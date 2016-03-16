@@ -83,7 +83,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(
             MailDummy::class,
-            $container->make('MailDummy')
+            $container->make('MailDummy', [
+                'url' => 'url',
+                'key' => 'key'
+            ])
         );
     }
 }
