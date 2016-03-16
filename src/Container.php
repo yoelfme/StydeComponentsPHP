@@ -69,9 +69,13 @@ class Container
 
         foreach ($constructorParameters as $constructorParameter) {
             $parameterName = $constructorParameter->getName();
+            $hasDefaultValue = $constructorParameter->isDefaultValueAvailable();
 
             if (isset($arguments[$parameterName])) {
                 $dependencies[] = $arguments[$parameterName];
+                continue;
+            } elseif ($hasDefaultValue) {
+                $dependencies[] = $constructorParameter->getDefaultValue();
                 continue;
             }
 

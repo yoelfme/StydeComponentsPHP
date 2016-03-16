@@ -89,6 +89,18 @@ class ContainerTest extends PHPUnit_Framework_TestCase
             ])
         );
     }
+
+    public function test_container_make_with_default_arguments()
+    {
+        $container = new Container();
+
+        $this->assertInstanceOf(
+            MailDummy::class,
+            $container->make('MailDummy', [
+                'url' => 'url'
+            ])
+        );
+    }
 }
 
 class MailDummy {
@@ -96,7 +108,7 @@ class MailDummy {
     private $url;
     private $key;
 
-    public function __construct($url, $key)
+    public function __construct($url, $key = null)
     {
         $this->url = $url;
         $this->key = $key;
