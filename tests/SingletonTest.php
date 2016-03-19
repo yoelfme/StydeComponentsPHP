@@ -27,7 +27,6 @@ class SingletonTest extends  PHPUnit_Framework_TestCase
 
     public function test_welcome_known_users()
     {
-//        $greeter = GreeterDummy::getInstance('Duilio');
         $greeter = new GreeterDummy('Duilio');
         $this->assertSame('Bienvenido Duilio', $greeter->welcome());
     }
