@@ -4,12 +4,29 @@ namespace Styde;
 use Closure;
 use ReflectionClass;
 use ReflectionException;
+use InvalidArgumentException;
 
 class Container
 {
     protected $bindings = [];
 
     protected $shared = [];
+
+    private static $instance = null;
+
+    public static function getInstance()
+    {
+        if (static::$instance == null) {
+            static::$intance = new Container;
+        }
+
+        return static::$instance;
+    }
+
+    public static function setInstance(Container $container)
+    {
+        static::$instance = $container;
+    }
 
     public function bind($name, $resolver, $shared = false)
     {
