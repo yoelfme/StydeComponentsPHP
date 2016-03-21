@@ -17,7 +17,7 @@ class Container
     public static function getInstance()
     {
         if (static::$instance == null) {
-            static::$intance = new Container;
+            static::$instance = new Container;
         }
 
         return static::$instance;
@@ -82,6 +82,7 @@ class Container
             throw new ContainerException('Does not exist the class: ' . $name);
         }
 
+
         if (!$reflection->isInstantiable()) {
             throw new InvalidArgumentException($name.' is not instantiable');
         }
@@ -95,6 +96,7 @@ class Container
         $constructorParameters = $constructor->getParameters(); // ReflectionParameter
 
         $dependencies = [];
+
 
         foreach ($constructorParameters as $constructorParameter) {
             $parameterName = $constructorParameter->getName();
@@ -116,12 +118,14 @@ class Container
 
             if ($parameterClass != null) {
                 $parameterClassName = $parameterClass->getName();
-                $arguments[] = $this->build($parameterClassName);
+                $arguments[] = $this->make($parameterClassName);
             } else {
                 throw new ContainerException('Please provide the value of the parameter ['.$parameterName.']');
             }
 
         }
+
+        // dd($arguments);
 
         // new Foo($bar) or new MailDummy('url', 'key')
         return $reflection->newInstanceArgs($arguments);
