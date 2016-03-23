@@ -17,6 +17,8 @@ $whoops->register();
 
 $container = Container::getInstance();
 
+Access::setContainer($container);
+
 $container->singleton('session', function () {
     $data = [
         'user_data' => [

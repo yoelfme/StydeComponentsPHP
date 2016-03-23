@@ -3,13 +3,11 @@ namespace Styde\Facades;
 
 use Styde\Container;
 
-class Access
+class Access extends Facade
 {
 
-    public static function check($role)
+    public static function getAccessor()
     {
-        $access = Container::getInstance()->make('access');
-
-        return $access->check($role);
+        return 'access';
     }
 }
