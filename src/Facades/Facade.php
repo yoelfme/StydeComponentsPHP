@@ -33,6 +33,17 @@ abstract class Facade
     {
         $object = static::getInstance();
 
-        return call_user_func_array([$object, $method], $args);
+        switch (count($args)) {
+            case 0:
+                return $object->$method();
+            case 1:
+                return $object->$method($args[0]);
+            case 2:
+                return $object->$method($args[0], $args[1]);
+            case 3:
+                return $object->$method($args[0], $args[2], $args[3]);
+            default:
+                return call_user_func_array([$object, $method], $args);
+        }
     }
 }
