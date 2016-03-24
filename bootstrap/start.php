@@ -2,11 +2,6 @@
 
 use Styde\Application;
 use Styde\Container;
-use Styde\SessionArrayDriver;
-use Styde\SessionManager;
-use Styde\Authenticator;
-use Styde\AccessHandler;
-use Styde\AuthenticatorInterface;
 
 require __DIR__ .'/../vendor/autoload.php';
 
@@ -21,4 +16,11 @@ $container = Container::getInstance();
 Access::setContainer($container);
 
 $application = new Application($container);
-$application->register();
+
+//$application->register();
+
+$application->registerProviders([
+    \Styde\Providers\SessionProvider::class,
+    \Styde\Providers\AuthenticatorProvider::class,
+    \Styde\Providers\AccessProvider::class
+]);

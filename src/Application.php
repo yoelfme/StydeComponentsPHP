@@ -17,6 +17,14 @@ class Application
     {
         $this->container = $container;
     }
+    
+    public function registerProviders($providers = [])
+    {
+        foreach ($providers as $provider) {
+            $provider = new $provider($this->container);
+            $provider->register();
+        }
+    }
 
     public function register()
     {
