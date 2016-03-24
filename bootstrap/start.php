@@ -1,5 +1,6 @@
 <?php
 
+use Styde\Application;
 use Styde\Container;
 use Styde\SessionArrayDriver;
 use Styde\SessionManager;
@@ -19,23 +20,5 @@ $container = Container::getInstance();
 
 Access::setContainer($container);
 
-$container->singleton('session', function () {
-    $data = [
-        'user_data' => [
-            'name' => 'Duilio',
-            'role' => 'teacher'
-        ]
-    ];
-
-    $driver = new SessionArrayDriver($data);
-    return new SessionManager($driver);
-});
-
-$container->singleton(AuthenticatorInterface::class, function ($app) {
-    return new Authenticator($app->make('session'));
-});
-
-$container->singleton('access', function ($app) {
-    // return new AccessHandler($app->make('auth'));
-    return $app->build(Styde\AccessHandler::class);
-});
+$application = new Application($container);
+$application->register();
