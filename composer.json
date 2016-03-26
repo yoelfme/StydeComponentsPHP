@@ -7,11 +7,18 @@
             "bootstrap/helpers.php"
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../PackageComponentsPHP"
+        }
+    ],
     "require-dev": {
         "phpunit/phpunit": "^5.2",
         "mockery/mockery": "^0.9.4"
     },
     "require": {
+        "yoelfme/container": "dev-master",
         "filp/whoops": "^2.0"
     }
 }

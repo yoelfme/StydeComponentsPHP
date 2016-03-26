@@ -1,7 +1,7 @@
 <?php
 namespace Styde\Facades;
 
-use Styde\Container;
+use Styde\Container\Facade;
 
 class Access extends Facade
 {

@@ -2,6 +2,7 @@
 namespace Styde\Providers;
 
 use Styde\AccessHandler;
+use Styde\Container\Provider;
 
 class AccessProvider extends Provider
 {

@@ -3,6 +3,7 @@ namespace Styde\Providers;
 
 use Styde\SessionArrayDriver;
 use Styde\SessionManager;
+use Styde\Container\Provider;
 
 class SessionProvider extends Provider
 {

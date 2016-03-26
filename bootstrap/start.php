@@ -1,7 +1,8 @@
 <?php
 
-use Styde\Application;
-use Styde\Container;
+use Styde\Container\Application;
+use Styde\Container\Container;
+use Styde\Container\Facade;
 
 require __DIR__ .'/../vendor/autoload.php';
 
@@ -13,7 +14,7 @@ $whoops->register();
 
 $container = Container::getInstance();
 
-Access::setContainer($container);
+Facade::setContainer($container);
 
 $application = new Application($container);
 
