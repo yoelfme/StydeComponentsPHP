@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69a36b5c2225628da73cd63be92e7429",
-    "content-hash": "6f8b171acc93b980f02f03a98730be2e",
+    "hash": "28aeba9f18271cb180e27e681be5f725",
+    "content-hash": "ca55a17b7294c982bc25d5c66fc169b7",
     "packages": [
         {
             "name": "filp/whoops",
@@ -69,16 +69,16 @@
         },
         {
             "name": "yoelfme/container",
-            "version": "dev-master",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yoelfme/StydeContainerPackage.git",
-                "reference": "d584b0bea29318624a9fd093d779d315095987e6"
+                "reference": "bad185020e0ee91b5b7b021e173416c1532a9202"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yoelfme/StydeContainerPackage/zipball/d584b0bea29318624a9fd093d779d315095987e6",
-                "reference": "d584b0bea29318624a9fd093d779d315095987e6",
+                "url": "https://api.github.com/repos/yoelfme/StydeContainerPackage/zipball/bad185020e0ee91b5b7b021e173416c1532a9202",
+                "reference": "bad185020e0ee91b5b7b021e173416c1532a9202",
                 "shasum": ""
             },
             "require-dev": {
@@ -102,7 +102,7 @@
                 }
             ],
             "description": "This is a demo IoC container, please do NOT use it in production",
-            "time": "2016-03-25 06:59:11"
+            "time": "2016-03-26 18:18:41"
         }
     ],
     "packages-dev": [
@@ -1311,11 +1311,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "yoelfme/container": 20
-    },
-    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

@@ -13,8 +13,6 @@
     },
     "require": {
         "filp/whoops": "^2.0",
-        "yoelfme/container": "dev-master"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "yoelfme/container": "^0.1.0"
+    }
 }
